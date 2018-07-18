@@ -12,6 +12,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTvCenter, mTvBottom;
     private RelativeLayout mLayout;
 
+    private SelectImgPopWindow mSelectImgPopWindow;
+    private CenterPopWindow mCenterPopWindow;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private SelectImgPopWindow mSelectImgPopWindow;
 
     private void showDialogBottom() {
         if (mSelectImgPopWindow == null) {
@@ -64,6 +66,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showDialogCenter() {
-
+        if (mCenterPopWindow==null){
+            mCenterPopWindow = new CenterPopWindow(this,mLayout);
+        }
+        mCenterPopWindow.show();
     }
 }
