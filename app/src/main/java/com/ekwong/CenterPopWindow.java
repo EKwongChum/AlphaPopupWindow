@@ -3,11 +3,11 @@ package com.ekwong;
 import android.content.Context;
 import android.view.View;
 
-import com.ekwong.alphapopupwindowlib.AlphaPopWindow;
+import com.ekwong.alphapopupwindowlib.EkPopWindow;
 import com.ekwong.alphapopupwindowlib.CustomPopWindow;
 import com.ekwong.alphapopupwindowlib.PopAnimation;
 
-public class CenterPopWindow extends AlphaPopWindow {
+public class CenterPopWindow extends EkPopWindow {
 
 
     public CenterPopWindow(Context context, View decorView) {
@@ -22,8 +22,4 @@ public class CenterPopWindow extends AlphaPopWindow {
                 .setAnimationType(PopAnimation.FADE_OUT_CENTER);
     }
 
-    @Override
-    protected void findView(CustomPopWindow customPopWindow) {
-
-    }
 }

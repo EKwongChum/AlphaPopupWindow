@@ -15,7 +15,7 @@ import android.widget.PopupWindow;
 /**
  * @author erkang
  * <p>
- * 自定义的PopWindow帮助类
+ * 自定义的PopWindow类
  */
 public class CustomPopWindow {
 
@@ -57,6 +57,13 @@ public class CustomPopWindow {
         }
     };
 
+    /**
+     * 构造方法
+     *
+     * @param context   上下文
+     * @param layoutRes 布局资源
+     * @param builder   构造者对象
+     */
     private CustomPopWindow(Context context, int layoutRes, Builder builder) {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
         mBgView = new FrameLayout(context);

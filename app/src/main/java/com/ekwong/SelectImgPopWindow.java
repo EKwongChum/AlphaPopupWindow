@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 
-import com.ekwong.alphapopupwindowlib.AlphaPopWindow;
+import com.ekwong.alphapopupwindowlib.EkPopWindow;
 import com.ekwong.alphapopupwindowlib.CustomPopWindow;
 import com.ekwong.alphapopupwindowlib.PopAnimation;
 
@@ -13,7 +13,7 @@ import com.ekwong.alphapopupwindowlib.PopAnimation;
  * <p>
  * 选择图片弹窗
  */
-public class SelectImgPopWindow extends AlphaPopWindow {
+public class SelectImgPopWindow extends EkPopWindow {
 
     public interface WindowClickListener {
         void onGalleryClick();
