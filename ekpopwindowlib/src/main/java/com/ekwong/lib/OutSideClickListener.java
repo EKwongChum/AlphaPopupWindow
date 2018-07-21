@@ -1,4 +1,4 @@
-package com.ekwong.alphapopupwindowlib;
+package com.ekwong.lib;
 
 /**
  * @author erkang

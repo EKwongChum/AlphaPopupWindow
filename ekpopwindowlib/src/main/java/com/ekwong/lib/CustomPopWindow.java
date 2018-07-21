@@ -1,4 +1,4 @@
-package com.ekwong.alphapopupwindowlib;
+package com.ekwong.lib;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.PopupWindow;
+
+import com.ekwong.alphapopupwindowlib.R;
 
 /**
  * @author erkang

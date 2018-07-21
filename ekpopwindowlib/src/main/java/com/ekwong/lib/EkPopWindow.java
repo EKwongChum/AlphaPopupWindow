@@ -1,4 +1,4 @@
-package com.ekwong.alphapopupwindowlib;
+package com.ekwong.lib;
 
 import android.content.Context;
 import android.view.View;

@@ -3,9 +3,9 @@ package com.ekwong;
 import android.content.Context;
 import android.view.View;
 
-import com.ekwong.alphapopupwindowlib.EkPopWindow;
-import com.ekwong.alphapopupwindowlib.CustomPopWindow;
-import com.ekwong.alphapopupwindowlib.PopAnimation;
+import com.ekwong.lib.EkPopWindow;
+import com.ekwong.lib.CustomPopWindow;
+import com.ekwong.lib.PopAnimation;
 
 public class CenterPopWindow extends EkPopWindow {
 
