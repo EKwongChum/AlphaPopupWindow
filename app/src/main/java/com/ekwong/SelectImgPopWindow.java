@@ -37,10 +37,14 @@ public class SelectImgPopWindow extends EkPopWindow {
 
     @Override
     protected void setBuilderConfig(CustomPopWindow.Builder builder) {
+        // 设置动画周期
         builder.setDuration(mContext.getResources().getInteger(R.integer.anim_duration_short))
-            .setOutSideColor(mContext.getResources().getColor(R.color.transparent_fifty_percent))
-            .setOutSideTouchable(true)
-            .setAnimationType(PopAnimation.POP_FROM_BOTTOM);
+                //设置外层颜色
+                .setOutSideColor(mContext.getResources().getColor(R.color.transparent_fifty_percent))
+                //外层是否可点击
+                .setOutSideTouchable(true)
+                //设置动画类型
+                .setAnimationType(PopAnimation.POP_FROM_BOTTOM);
     }
 
     @Override
