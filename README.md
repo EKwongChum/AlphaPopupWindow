@@ -2,6 +2,24 @@
 
 一款通用弹窗，免去写PopupWindow的一些烦恼
 
+## Gradle ##
+
+在你的项目中添加
+
+```groovy
+repositories {
+        maven { url "https://jitpack.io" }
+    }
+```
+
+然后添加依赖
+
+```groovy
+dependencies {
+        implementation 'com.github.ekwongchum:ekpopwindow:1.0.0'
+    }
+```
+
 ## 开始使用 ##
 
 继承EkPopWindow类，重写setBuilderConfig方法实现你的自定义，例如：
@@ -88,4 +106,6 @@ protected void setBuilderConfig(CustomPopWindow.Builder builder) {
 
 一个日常工作中的小代码，有错误请指出。
 
-项目位于https://github.com/EKwongChum/EkPopWindow，欢迎fork和star，如果你有更好的建议，欢迎提PR。
+项目位于https://github.com/EKwongChum/EkPopWindow，
+
+欢迎fork和star，如果你有更好的建议，欢迎提PR。
