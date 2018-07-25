@@ -12,7 +12,7 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 
-import com.ekwong.alphapopupwindowlib.R;
+import com.ekwong.ekpopwindowlib.R;
 
 /**
  * @author erkang

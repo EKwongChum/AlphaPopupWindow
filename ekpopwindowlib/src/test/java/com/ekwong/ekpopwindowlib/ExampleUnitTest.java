@@ -1,4 +1,4 @@
-package com.ekwong.alphapopupwindowlib;
+package com.ekwong.ekpopwindowlib;
 
 import org.junit.Test;
 

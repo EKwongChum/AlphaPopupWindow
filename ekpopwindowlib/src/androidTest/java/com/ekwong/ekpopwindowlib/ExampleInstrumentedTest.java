@@ -1,4 +1,4 @@
-package com.ekwong.alphapopupwindowlib;
+package com.ekwong.ekpopwindowlib;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
