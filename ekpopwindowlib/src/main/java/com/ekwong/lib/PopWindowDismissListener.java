@@ -5,7 +5,7 @@ package com.ekwong.lib;
  * <p>
  * 关闭popwindow的监听器
  */
-public interface CustomPopWindowDismissListener {
+public interface PopWindowDismissListener {
 
     /**
      * 关闭时调用
