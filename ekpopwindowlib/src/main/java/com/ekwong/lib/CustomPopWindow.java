@@ -29,7 +29,7 @@ public class CustomPopWindow {
 
     private int mAnimDuration;
 
-    private CustomPopWindowDismissListener mDismissListener;
+    private PopWindowDismissListener mDismissListener;
 
     private OutSideClickListener mOutSideClickListener;
 
@@ -66,11 +66,12 @@ public class CustomPopWindow {
      * @param layoutRes 布局资源
      * @param builder   构造者对象
      */
-    private CustomPopWindow(Context context, int layoutRes, Builder builder) {
+    private CustomPopWindow(Context context, int layoutRes, final Builder builder) {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
         mBgView = new FrameLayout(context);
         mBgView.setBackgroundColor(context.getResources().getColor(R.color.transparent_fifty_percent));
-        mBgPopupWindow = new PopupWindow(mBgView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        mBgPopupWindow = new PopupWindow(mBgView, ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT);
         mContentView = layoutInflater.inflate(layoutRes, mBgView, false);
         mBgView.setBackgroundColor(builder.mColorOutside);
         mBgView.setClickable(builder.mIsOutsideTouchable);
@@ -91,7 +92,9 @@ public class CustomPopWindow {
                 if (mOutSideClickListener != null) {
                     mOutSideClickListener.onOutSideClick();
                 }
-                dismiss();
+                if (builder.mIsOutsideTouchable) {
+                    dismiss();
+                }
             }
         });
         mBgPopupWindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
@@ -101,7 +104,7 @@ public class CustomPopWindow {
         mOutSideClickListener = outSideClickListener;
     }
 
-    public void setOnDismissListener(CustomPopWindowDismissListener dismissListener) {
+    public void setOnDismissListener(PopWindowDismissListener dismissListener) {
         mDismissListener = dismissListener;
     }
 
