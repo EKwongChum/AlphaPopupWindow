@@ -59,7 +59,7 @@ public abstract class EkPopWindow {
      *
      * @param listener 监听器对象
      */
-    public void setOnDismissListener(CustomPopWindowDismissListener listener) {
+    public void setOnDismissListener(PopWindowDismissListener listener) {
         mCustomPopWindow.setOnDismissListener(listener);
     }
 
