@@ -16,7 +16,7 @@ repositories {
 
 ```groovy
 dependencies {
-        implementation 'com.github.ekwongchum:ekpopwindow:1.0.0'
+        implementation 'com.github.EKwongChum:EkPopWindow:1.0.0'
     }
 ```
 
