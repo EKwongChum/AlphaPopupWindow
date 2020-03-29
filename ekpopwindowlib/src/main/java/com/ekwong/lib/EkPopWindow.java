@@ -3,6 +3,8 @@ package com.ekwong.lib;
 import android.content.Context;
 import android.view.View;
 
+import com.ekwong.ekpopwindowlib.R;
+
 /**
  * @author erkang
  * <p>
@@ -41,6 +43,10 @@ public abstract class EkPopWindow {
      * @param builder 构造者对象
      */
     protected void setBuilderConfig(CustomPopWindow.Builder builder) {
+        builder.setDuration(mContext.getResources().getInteger(R.integer.default_duration))
+                .setOutSideColor(mContext.getResources().getColor(R.color.transparent_fifty_percent))
+                .setOutSideTouchable(true)
+                .setAnimationType(PopAnimation.FADE_OUT_CENTER);
     }
 
     /**

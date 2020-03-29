@@ -22,7 +22,9 @@ dependencies {
 
 ## 开始使用 ##
 
-继承EkPopWindow类，重写setBuilderConfig方法实现你的自定义，例如：
+##### 简单使用
+
+继承EkPopWindow类，在构造方法中指定你的布局资源文件，例如：
 
 ```java
 public class CenterPopWindow extends EkPopWindow {
@@ -32,6 +34,15 @@ public class CenterPopWindow extends EkPopWindow {
     }
 }
 ```
+
+在界面中使用：
+
+```java
+mCenterPopWindow = new CenterPopWindow(this,mLayout);
+mCenterPopWindow.show();
+```
+
+##### 自定义
 
 如果需要对具体的view进行处理，在findView()方法中进行处理，例如：
 
@@ -109,3 +120,6 @@ protected void setBuilderConfig(CustomPopWindow.Builder builder) {
 项目位于https://github.com/EKwongChum/EkPopWindow，
 
 欢迎fork和star，如果你有更好的建议，欢迎提PR。
+
+[我的博客]: https://ekwong.cn/
+

@@ -66,8 +66,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showDialogCenter() {
-        if (mCenterPopWindow==null){
-            mCenterPopWindow = new CenterPopWindow(this,mLayout);
+        if (mCenterPopWindow == null) {
+            mCenterPopWindow = new CenterPopWindow(this, mLayout);
         }
         mCenterPopWindow.show();
     }
