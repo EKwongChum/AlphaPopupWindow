@@ -5,9 +5,8 @@ import android.view.View;
 
 import com.ekwong.ekpopwindowlib.R;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author erkang
@@ -28,7 +27,9 @@ public abstract class EkPopWindow {
 
     private boolean isShow;
 
-    private List<BackPressedListener> backPressedListeners = new LinkedList<>();
+    private Set<BackPressedListener> backPressedListeners = new HashSet<>();
+
+    private Set<BackInterruption> backInterruptions = new HashSet<>();
 
     public EkPopWindow(Context context, int resLayout, View decorView) {
         mContext = context;
@@ -43,6 +44,22 @@ public abstract class EkPopWindow {
     private void initBuilder() {
         mBuilder = new CustomPopWindow.Builder(mContext, mResLayout);
         setBuilderConfig(mBuilder);
+    }
+
+    public boolean addBackPressedListener(BackPressedListener listener) {
+        return backPressedListeners.add(listener);
+    }
+
+    public boolean removeBackPressedListener(BackPressedListener listener) {
+        return backPressedListeners.remove(listener);
+    }
+
+    public boolean addBackInterruption(BackInterruption interruption) {
+        return backInterruptions.add(interruption);
+    }
+
+    public boolean removeBackInterruption(BackInterruption interruption) {
+        return backInterruptions.remove(interruption);
     }
 
     /**
@@ -97,11 +114,21 @@ public abstract class EkPopWindow {
         return isShow;
     }
 
+    /**
+     * 当返回按钮被点击的时候调用
+     */
     public void onBackPressed() {
-        if (!backPressedListeners.isEmpty()) {
-            for (BackPressedListener listener : backPressedListeners) {
-                listener.onBackPressed();
+        if (!backInterruptions.isEmpty()) {
+            for (BackInterruption listener : backInterruptions) {
+                listener.interrupt();
             }
+        } else {
+            if (!backPressedListeners.isEmpty()) {
+                for (BackPressedListener listener : backPressedListeners) {
+                    listener.onBackPressed();
+                }
+            }
+            dismiss();
         }
     }
 
