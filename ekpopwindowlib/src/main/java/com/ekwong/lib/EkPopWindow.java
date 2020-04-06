@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.View;
 
 import com.ekwong.ekpopwindowlib.R;
+import com.ekwong.lib.interrupt.BackInterruption;
+import com.ekwong.lib.interrupt.Interruption;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -29,7 +31,7 @@ public abstract class EkPopWindow {
 
     private Set<BackPressedListener> backPressedListeners = new HashSet<>();
 
-    private Set<BackInterruption> backInterruptions = new HashSet<>();
+    private Interruption interruption = new Interruption();
 
     public EkPopWindow(Context context, int resLayout, View decorView) {
         mContext = context;
@@ -54,13 +56,10 @@ public abstract class EkPopWindow {
         return backPressedListeners.remove(listener);
     }
 
-    public boolean addBackInterruption(BackInterruption interruption) {
-        return backInterruptions.add(interruption);
+    public boolean addBackInterruption(BackInterruption backInterruption) {
+        return interruption.addBackInterruption(backInterruption);
     }
 
-    public boolean removeBackInterruption(BackInterruption interruption) {
-        return backInterruptions.remove(interruption);
-    }
 
     /**
      * 设置弹窗的配置
@@ -118,10 +117,8 @@ public abstract class EkPopWindow {
      * 当返回按钮被点击的时候调用
      */
     public void onBackPressed() {
-        if (!backInterruptions.isEmpty()) {
-            for (BackInterruption listener : backInterruptions) {
-                listener.interrupt();
-            }
+        if (interruption.isEnable()) {
+            interruption.exec();
         } else {
             if (!backPressedListeners.isEmpty()) {
                 for (BackPressedListener listener : backPressedListeners) {

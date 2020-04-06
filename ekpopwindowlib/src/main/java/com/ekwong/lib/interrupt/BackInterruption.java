@@ -1,4 +1,4 @@
-package com.ekwong.lib;
+package com.ekwong.lib.interrupt;
 
 /**
  * @author ekwong
