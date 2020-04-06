@@ -5,6 +5,10 @@ import android.view.View;
 
 import com.ekwong.ekpopwindowlib.R;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * @author erkang
  * <p>
@@ -21,6 +25,10 @@ public abstract class EkPopWindow {
     private CustomPopWindow mCustomPopWindow;
 
     private CustomPopWindow.Builder mBuilder;
+
+    private boolean isShow;
+
+    private List<BackPressedListener> backPressedListeners = new LinkedList<>();
 
     public EkPopWindow(Context context, int resLayout, View decorView) {
         mContext = context;
@@ -74,6 +82,7 @@ public abstract class EkPopWindow {
      */
     public void show() {
         mCustomPopWindow.show(mDecorView);
+        isShow = true;
     }
 
     /**
@@ -81,5 +90,19 @@ public abstract class EkPopWindow {
      */
     public void dismiss() {
         mCustomPopWindow.dismiss();
+        isShow = false;
     }
+
+    public boolean isShow() {
+        return isShow;
+    }
+
+    public void onBackPressed() {
+        if (!backPressedListeners.isEmpty()) {
+            for (BackPressedListener listener : backPressedListeners) {
+                listener.onBackPressed();
+            }
+        }
+    }
+
 }
